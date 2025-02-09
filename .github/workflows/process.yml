@@ -20,6 +20,6 @@ jobs:
         with:
           host: 54.210.175.137 # whatever is the ip of the instance
           username: ubuntu
-          password: ${{secrets.PRIVATE_SSH_KEY}} #what ever is the ssh private
+          key: ${{secrets.PRIVATE_SSH_KEY}} #what ever is the ssh private
           port: 22
           script: whoami
