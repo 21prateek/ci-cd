@@ -18,8 +18,8 @@ jobs:
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@v1.2.0
         with:
-          host: ubuntu@ip-172-31-20-162 # what the name of the starting instance is whenever we do ssh -i privatkey ubuntu@ip after that ever come is the host name
+          host: 54.210.175.137 # whatever is the ip of the instance
           username: ubuntu
-          password: ${{secrets.PRIVATE_SSH_KEY}}
+          password: ${{secrets.PRIVATE_SSH_KEY}} #what ever is the ssh private
           port: 22
           script: whoami
