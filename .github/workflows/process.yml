@@ -1,0 +1,25 @@
+name: Push-to-EC2 instance
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Push to EC2
+    runs-on: ubuntu-latest
+
+    steps:
+      # It will check out code this is already written code by someone else we are just using it,use to clone
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ubuntu@ip-172-31-20-162 # what the name of the starting instance is whenever we do ssh -i privatkey ubuntu@ip after that ever come is the host name
+          username: ubuntu
+          password: ${{secrets.PRIVATE_SSH_KEY}}
+          port: 22
+          script: whoami
